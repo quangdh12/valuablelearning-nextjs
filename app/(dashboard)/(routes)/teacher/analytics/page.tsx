@@ -1,9 +1,8 @@
+import { getAnalytics } from '@/actions/get-analytics'
 import { auth } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
-import React from 'react'
-import { DataCard } from './_components/data-card'
-import { getAnalytics } from '@/actions/get-analytics'
 import { Chart } from './_components/chart'
+import { DataCard } from './_components/data-card'
 
 const AnalyticsPage = async () => {
 	const { userId } = auth()
@@ -20,6 +19,7 @@ const AnalyticsPage = async () => {
 				<DataCard
 					label='Total Revenue'
 					value={totalRevenue}
+					shouldFormat
 				/>
 				<DataCard
 					label='Total Sales'

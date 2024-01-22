@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-
 import {
 	ColumnDef,
 	ColumnFiltersState,
@@ -13,6 +12,8 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from '@tanstack/react-table'
+import Link from 'next/link'
+import { PlusCircle } from 'lucide-react'
 
 import {
 	Table,
@@ -24,8 +25,6 @@ import {
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import Link from 'next/link'
-import { Plus } from 'lucide-react'
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
@@ -57,9 +56,9 @@ export function DataTable<TData, TValue>({
 
 	return (
 		<div>
-			<div className='flex items-center py-4'>
+			<div className='flex items-center py-4 justify-between'>
 				<Input
-					placeholder='Filter emails...'
+					placeholder='Filter courses...'
 					value={
 						(table
 							.getColumn('title')
@@ -67,20 +66,18 @@ export function DataTable<TData, TValue>({
 					}
 					onChange={(event) =>
 						table
-							.getColumn('email')
+							.getColumn('title')
 							?.setFilterValue(event.target.value)
 					}
 					className='max-w-sm'
 				/>
-
 				<Link href='/teacher/create'>
 					<Button>
-						<Plus className='h-4 w-4 mr-2' />
-						New Course
+						<PlusCircle className='h-4 w-4 mr-2' />
+						New course
 					</Button>
 				</Link>
 			</div>
-
 			<div className='rounded-md border'>
 				<Table>
 					<TableHeader>
@@ -134,7 +131,6 @@ export function DataTable<TData, TValue>({
 					</TableBody>
 				</Table>
 			</div>
-
 			<div className='flex items-center justify-end space-x-2 py-4'>
 				<Button
 					variant='outline'
