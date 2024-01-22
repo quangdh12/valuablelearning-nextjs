@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { isTeacher } from '@/lib/teacher'
 import { UserButton, useAuth } from '@clerk/nextjs'
 import { LogOut } from 'lucide-react'
 import Link from 'next/link'
@@ -31,7 +30,7 @@ export const NavbarRoutes = () => {
 							Exit
 						</Button>
 					</Link>
-				) : isTeacher(userId) ? (
+				) : (
 					<Link href='/teacher/courses'>
 						<Button
 							size='sm'
@@ -40,7 +39,7 @@ export const NavbarRoutes = () => {
 							Teacher mode
 						</Button>
 					</Link>
-				) : null}
+				)}
 				<UserButton afterSignOutUrl='/' />
 			</div>
 		</>
