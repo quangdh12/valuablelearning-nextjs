@@ -1,15 +1,15 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
-datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Course {
@@ -30,9 +30,9 @@ model Course {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // @@fulltext([title])
 
   @@index([categoryId])
-  @@fulltext([title])
 }
 
 model Category {
