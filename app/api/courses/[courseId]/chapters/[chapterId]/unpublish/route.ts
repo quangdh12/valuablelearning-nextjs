@@ -39,6 +39,7 @@ export async function PATCH(
 				courseId: params.courseId,
 				isPublished: true,
 			},
+			take: 20,
 		})
 
 		if (!publishedChaptersInCourse.length) {

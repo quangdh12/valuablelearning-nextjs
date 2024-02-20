@@ -52,6 +52,7 @@ export const getChapter = async ({
 				where: {
 					courseId,
 				},
+				take: 20,
 			})
 		}
 

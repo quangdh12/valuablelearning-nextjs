@@ -49,6 +49,7 @@ export const getCourses = async ({
 			orderBy: {
 				createdAt: 'desc',
 			},
+			take: 20,
 		})
 
 		const coursesWithProgress: CourseWithProgressWithCategory[] =

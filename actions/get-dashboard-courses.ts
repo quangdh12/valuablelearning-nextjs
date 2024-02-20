@@ -33,6 +33,7 @@ export const getDashboardCourses = async (
 					},
 				},
 			},
+			take: 20,
 		})
 
 		const courses = purchasedCourses.map(

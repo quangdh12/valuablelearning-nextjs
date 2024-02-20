@@ -26,6 +26,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 		orderBy: {
 			name: 'asc',
 		},
+		take: 20,
 	})
 
 	const courses = await getCourses({

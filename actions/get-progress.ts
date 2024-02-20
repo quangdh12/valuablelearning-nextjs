@@ -13,6 +13,7 @@ export const getProgress = async (
 			select: {
 				id: true,
 			},
+			take: 20,
 		})
 
 		const publishedChapterIds = publishedChapters.map(

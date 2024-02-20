@@ -31,6 +31,7 @@ export const getAnalytics = async (userId: string) => {
 			include: {
 				course: true,
 			},
+			take: 20,
 		})
 
 		const groupedEarnings = groupByCourse(purchases)

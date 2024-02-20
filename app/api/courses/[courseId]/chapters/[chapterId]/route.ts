@@ -70,6 +70,7 @@ export async function DELETE(
 				courseId: params.courseId,
 				isPublished: true,
 			},
+			take: 20,
 		})
 
 		if (!publishedChaptersInCourse.length) {

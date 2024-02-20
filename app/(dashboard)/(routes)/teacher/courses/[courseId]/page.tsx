@@ -47,6 +47,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 		orderBy: {
 			name: 'asc',
 		},
+		take: 20,
 	})
 
 	if (!course) {

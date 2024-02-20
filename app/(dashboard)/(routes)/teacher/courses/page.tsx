@@ -20,6 +20,7 @@ const CoursesPage = async () => {
 		orderBy: {
 			createdAt: 'desc',
 		},
+		take: 20,
 	})
 
 	return (
